@@ -1,0 +1,13 @@
+$sizes: (
+  default: 24px,
+  medium: 28px,
+  big: 32px,
+  large: 36px,
+);
+
+@each $name, $size in $sizes {
+  .size-#{$name} {
+    width: $size;
+    height: $size;
+  }
+}
