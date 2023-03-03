@@ -25,6 +25,8 @@
     }
   },
   "rules": {
+    "import/prefer-default-export": "off",
+    "no-shadow": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -35,6 +37,16 @@
         "ts": "never",
         "tsx": "never",
         "d.ts": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.stories.*",
+          "**/.storybook/**/*.*"
+        ],
+        "peerDependencies": true
       }
     ]
   }
