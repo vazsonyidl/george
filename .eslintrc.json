@@ -48,6 +48,7 @@
         ],
         "peerDependencies": true
       }
-    ]
+    ],
+    "no-param-reassign": [1, { "props": true, "ignorePropertyModificationsFor": ["state"] }]
   }
 }
