@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleableComponent } from 'types';
 import { CountryFlagCore, CountryFlagCoreSize } from 'components/CountryFlag';
 
+import classNames from 'classnames';
 import styles from './CurrencyCard.module.scss';
 
 interface CurrencyCardProps extends StyleableComponent {
@@ -19,8 +20,9 @@ const CurrencyCard: React.FC<CurrencyCardProps> = ({
   exchangeRate,
   exchangeCurrency,
   flagSize,
+  className,
 }) => (
-  <div className={styles.root}>
+  <div className={classNames(className, styles.root)}>
     <CountryFlagCore
       countryCode={countryCode}
       size={flagSize}
