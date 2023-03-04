@@ -1,7 +1,8 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 
-import styles from './App.module.scss';
+import { ApplicationPaths } from 'routes';
 
-const App: React.FC = () => <div className={styles.root}>Root</div>;
+const App: React.FC = () => <Navigate to={ApplicationPaths.CURRENCY_RATE} />;
 
 export default App;
