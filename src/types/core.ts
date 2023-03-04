@@ -1,3 +1,3 @@
 export interface StyleableComponent {
-  className: string;
+  className?: string;
 }
