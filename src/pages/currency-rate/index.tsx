@@ -11,9 +11,14 @@ import {
 } from './redux';
 
 import styles from './CurrencyRate.module.scss';
+import CurrencyRateSearch from './components/CurrencyRateSearch';
+import { useSearchTerm } from './hooks/useSearchTerm';
 
 const CurrencyRatePage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
+
+  useSearchTerm();
+
   const baseCurrency = useSelector(selectCurrencyRateBaseCurrency);
   const currencyData = useSelector(selectCurrencyRateCurrencyData);
 
@@ -25,6 +30,7 @@ const CurrencyRatePage: React.FC = () => {
 
   return (
     <div>
+      <CurrencyRateSearch />
       {shouldDisplayCurrencyData
         ? currencyData.map((data) => (
             <CurrencyCard
@@ -34,7 +40,7 @@ const CurrencyRatePage: React.FC = () => {
               exchangeCurrency={baseCurrency}
               className={styles.card}
             />
-        ))
+          ))
         : null}
     </div>
   );

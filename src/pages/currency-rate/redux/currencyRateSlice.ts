@@ -3,16 +3,18 @@ import { createSlice } from '@reduxjs/toolkit';
 import { CurrencyRateData } from 'types';
 import { convertFXsToStoreCurrencyData } from 'helpers';
 
-import { fetchCurrencyExchangeRates } from './reducers';
+import { fetchCurrencyExchangeRates, setCurrencyRateSearchTermReducer } from './reducers';
 import { FetchCurrencyExchangeRatesReturn } from '../types';
 
 export interface CurrencyRateState {
   baseCurrency: string;
+  searchTerm: string;
   currencyData: Array<CurrencyRateData>;
 }
 
 const initialState: CurrencyRateState = {
   baseCurrency: '',
+  searchTerm: '',
   currencyData: [],
 };
 
@@ -20,9 +22,7 @@ export const currencyRateSlice = createSlice({
   name: 'currencyRate',
   initialState,
   reducers: {
-    setCurrencyRateBaseCurrency: (state, action: PayloadAction<string>) => {
-      state.baseCurrency = action.payload;
-    },
+    setCurrencyRateSearchTermReducer,
   },
   extraReducers: (builder) => {
     builder.addCase(
@@ -35,3 +35,7 @@ export const currencyRateSlice = createSlice({
     );
   },
 });
+
+const { setCurrencyRateSearchTermReducer: setCurrencyRateSearchTerm } = currencyRateSlice.actions;
+
+export { setCurrencyRateSearchTerm };

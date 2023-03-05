@@ -1,6 +1,9 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+
 import { FetchCurrencyExchangeRatesReturn } from '../types';
+
+import { CurrencyRateState } from './currencyRateSlice';
 
 export const fetchCurrencyExchangeRates = createAsyncThunk(
   'currencyRate/fetchCurrencyExchangeRates',
@@ -11,3 +14,10 @@ export const fetchCurrencyExchangeRates = createAsyncThunk(
     return response.data;
   },
 );
+
+export const setCurrencyRateSearchTermReducer = (
+  state: CurrencyRateState,
+  action: PayloadAction<string>,
+): void => {
+  state.searchTerm = action.payload;
+};

@@ -7,3 +7,7 @@ export interface FetchCurrencyExchangeRatesReturn {
   lastUpdated: string;
   fx: Array<FetchCurrencyExchangeRatesFXReturn>;
 }
+
+export enum CurrencyRateSearchQueryKeys {
+  SEARCH = 'search',
+}
