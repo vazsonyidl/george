@@ -1,6 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 import { RootState } from 'store';
+import { filterCurrencyDataBySearchTerm } from 'helpers';
 
 import { CurrencyRateState } from './currencyRateSlice';
 
@@ -11,7 +12,13 @@ export const selectCurrencyRateBaseCurrency = createSelector(
   (currencyRateState: CurrencyRateState) => currencyRateState.baseCurrency,
 );
 
-export const selectCurrencyRateCurrencyData = createSelector(
+export const selectCurrencyRateSearchTerm = createSelector(
   [selectCurrencyRateState],
-  (currencyRateState: CurrencyRateState) => currencyRateState.currencyData,
+  (currencyRateState: CurrencyRateState) => currencyRateState.searchTerm,
+);
+
+export const selectCurrencyRateCurrencyData = createSelector(
+  [selectCurrencyRateState, selectCurrencyRateSearchTerm],
+  (currencyRateState: CurrencyRateState, searchTerm) =>
+    filterCurrencyDataBySearchTerm(currencyRateState.currencyData, searchTerm),
 );
