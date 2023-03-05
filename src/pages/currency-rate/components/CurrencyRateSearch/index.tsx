@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'store';
 import { selectCurrencyRateSearchTerm, setCurrencyRateSearchTerm } from '../../redux';
 
+import styles from './CurrencyRateSearch.module.scss';
+
 const CurrencyRateSearch: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const searchTerm = useSelector(selectCurrencyRateSearchTerm);
@@ -13,7 +15,7 @@ const CurrencyRateSearch: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={styles.root}>
       <input
         onChange={onSearchTermChange}
         value={searchTerm}
