@@ -45,11 +45,12 @@
       {
         "devDependencies": [
           "**/*.stories.*",
-          "**/.storybook/**/*.*"
+          "**/.storybook/**/*.*",
+          "**/*/*.test.*"
         ],
         "peerDependencies": true
       }
     ],
-    "no-param-reassign": [1, { "props": true, "ignorePropertyModificationsFor": ["state"] }]
+    "no-param-reassign": [1, { "props": true, "ignorePropertyModificationsFor": ["state"] }],
   }
 }

@@ -14,6 +14,7 @@ export default defineConfig({
             store: resolve(__dirname, './src/store'),
             helpers: resolve(__dirname, './src/helpers'),
             routes: resolve(__dirname, './src/routes'),
+            fixtures: resolve(__dirname, './src/fixtures'),
         }
     }
 });
