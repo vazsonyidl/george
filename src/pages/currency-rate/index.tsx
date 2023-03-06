@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AppDispatch } from 'store';
+import { getTestIds, testIds } from 'helpers';
 import { CurrencyCard } from 'components/CurrencyCard';
 
 import {
@@ -31,17 +32,25 @@ const CurrencyRatePage: React.FC = () => {
   return (
     <div>
       <CurrencyRateSearch />
-      {shouldDisplayCurrencyData
-        ? currencyData.map((data) => (
-            <CurrencyCard
-              countryCode={data.countryCode}
-              currencyName={data.currencyName}
-              exchangeRate={data.exchangeRate}
-              exchangeCurrency={baseCurrency}
-              className={styles.card}
-            />
-          ))
-        : null}
+      <div
+        className={styles.container}
+        {...getTestIds(testIds.currencyRateCardListContainer)}
+      >
+        {shouldDisplayCurrencyData
+          ? currencyData.map((data) => (
+              <CurrencyCard
+                key={data.countryCode}
+                countryCode={data.countryCode}
+                currencyName={data.currencyName}
+                exchangeRate={data.exchangeRate}
+                exchangeCurrency={baseCurrency}
+                countryName={data.countryName}
+                className={styles.card}
+                testId={testIds.currencyRateCard}
+              />
+            ))
+          : null}
+      </div>
     </div>
   );
 };

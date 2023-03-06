@@ -1,10 +1,11 @@
-import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { CurrencyRateData } from 'types';
-import { convertFXsToStoreCurrencyData } from 'helpers';
 
-import { fetchCurrencyExchangeRates, setCurrencyRateSearchTermReducer } from './reducers';
-import { FetchCurrencyExchangeRatesReturn } from '../types';
+import {
+  fetchCurrencyExchangeRates,
+  setCurrencyRateExchangeRatesReducer,
+  setCurrencyRateSearchTermReducer,
+} from './reducers';
 
 export interface CurrencyRateState {
   baseCurrency: string;
@@ -25,14 +26,7 @@ export const currencyRateSlice = createSlice({
     setCurrencyRateSearchTermReducer,
   },
   extraReducers: (builder) => {
-    builder.addCase(
-      fetchCurrencyExchangeRates.fulfilled,
-      (state: CurrencyRateState, action: PayloadAction<FetchCurrencyExchangeRatesReturn>) => {
-        const { baseCurrency, fx } = action.payload;
-        state.baseCurrency = baseCurrency;
-        state.currencyData = convertFXsToStoreCurrencyData(fx);
-      },
-    );
+    builder.addCase(fetchCurrencyExchangeRates.fulfilled, setCurrencyRateExchangeRatesReducer);
   },
 });
 
