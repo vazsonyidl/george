@@ -10,7 +10,7 @@ export const convertFXsToStoreCurrencyData = (
     const { middle: exchangeRateMiddle = 1 } = fxData?.exchangeRate || {};
 
     return {
-      countryCode: fxData.currency,
+      countryCode: fxData.nameI18N.substring(0, 2).toLowerCase(),
       currencyCode: fxData.currency,
       exchangeRate: +(1 / exchangeRateMiddle).toFixed(6),
       currencyName: fxData.nameI18N,
