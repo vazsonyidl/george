@@ -11,9 +11,9 @@ export const convertFXsToStoreCurrencyData = (
 
     return {
       countryCode: fxData.currency,
-      currencyName: fxData.currency,
+      currencyCode: fxData.currency,
       exchangeRate: +(1 / exchangeRateMiddle).toFixed(6),
-      countryName: fxData.nameI18N,
+      currencyName: fxData.nameI18N,
     };
   });
 
@@ -24,6 +24,6 @@ export const filterCurrencyDataBySearchTerm = (
   if (searchTerm === '') return currencyData;
 
   return currencyData.filter((data) =>
-    data.countryName.trim().toLowerCase().includes(searchTerm.toLowerCase()),
+    data.currencyName.trim().toLowerCase().includes(searchTerm.toLowerCase()),
   );
 };

@@ -40,11 +40,11 @@ const CurrencyRatePage: React.FC = () => {
           ? currencyData.map((data) => (
               <CurrencyCard
                 key={data.countryCode}
+                currencyCode={data.currencyCode}
                 countryCode={data.countryCode}
                 currencyName={data.currencyName}
                 exchangeRate={data.exchangeRate}
                 exchangeCurrency={baseCurrency}
-                countryName={data.countryName}
                 className={styles.card}
                 testId={testIds.currencyRateCard}
               />

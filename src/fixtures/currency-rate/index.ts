@@ -2,9 +2,9 @@ import { CurrencyRateData } from 'types';
 
 export const currencyRateDataReducerFixture = (): Array<CurrencyRateData> => [
   {
-    currencyName: 'Euro',
     countryCode: 'EUR',
+    currencyCode: 'EUR',
     exchangeRate: 1,
-    countryName: 'Euro',
+    currencyName: 'Euro',
   },
 ];

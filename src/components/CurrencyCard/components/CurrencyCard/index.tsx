@@ -9,10 +9,10 @@ import { getTestIds } from '../../../../helpers';
 
 interface CurrencyCardProps extends StyleableComponent, TestableComponent {
   countryCode: string;
-  currencyName: string;
+  currencyCode: string;
   exchangeRate: number;
   exchangeCurrency: string;
-  countryName: string;
+  currencyName: string;
   flagSize?: CountryFlagCoreSize;
 }
 
@@ -21,7 +21,7 @@ const CurrencyCard: React.FC<CurrencyCardProps> = ({
   currencyName,
   exchangeRate,
   exchangeCurrency,
-  countryName,
+  currencyCode,
   flagSize,
   className,
   testId,
@@ -35,7 +35,7 @@ const CurrencyCard: React.FC<CurrencyCardProps> = ({
       size={flagSize}
     />
     <div className={styles.currencyName}>
-      {currencyName} - {countryName}
+      {currencyCode} - {currencyName}
     </div>
     <div>
       {exchangeRate} {exchangeCurrency}

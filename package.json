@@ -14,7 +14,8 @@
     "format": "pnpm run lint --fix && pnpm run prettier:write",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
