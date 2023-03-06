@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AppDispatch } from 'store';
+import { getTestIds, testIds } from 'helpers';
 import { selectCurrencyRateSearchTerm, setCurrencyRateSearchTerm } from '../../redux';
 
 import styles from './CurrencyRateSearch.module.scss';
@@ -19,6 +20,8 @@ const CurrencyRateSearch: React.FC = () => {
       <input
         onChange={onSearchTermChange}
         value={searchTerm}
+        aria-label="currency rate search term"
+        {...getTestIds(testIds.currencyRateSearchInput)}
       />
     </div>
   );

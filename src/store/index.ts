@@ -1,10 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { currencyRateSlice } from 'pages/currency-rate/redux';
 
+export const rootReducer = combineReducers({
+  currencyRate: currencyRateSlice.reducer,
+});
+
 export const store = configureStore({
-  reducer: {
-    currencyRate: currencyRateSlice.reducer,
-  },
+  reducer: rootReducer,
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -8,8 +8,9 @@ interface Rate {
 
 export interface CurrencyRateData {
   countryCode: string;
-  currencyName: string;
+  currencyCode: string;
   exchangeRate: number;
+  currencyName: string;
 }
 
 export interface FetchCurrencyExchangeRatesFXReturn {

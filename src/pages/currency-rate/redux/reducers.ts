@@ -4,6 +4,7 @@ import axios from 'axios';
 import { FetchCurrencyExchangeRatesReturn } from '../types';
 
 import { CurrencyRateState } from './currencyRateSlice';
+import { convertFXsToStoreCurrencyData } from '../../../helpers';
 
 export const fetchCurrencyExchangeRates = createAsyncThunk(
   'currencyRate/fetchCurrencyExchangeRates',
@@ -20,4 +21,13 @@ export const setCurrencyRateSearchTermReducer = (
   action: PayloadAction<string>,
 ): void => {
   state.searchTerm = action.payload;
+};
+
+export const setCurrencyRateExchangeRatesReducer = (
+  state: CurrencyRateState,
+  action: PayloadAction<FetchCurrencyExchangeRatesReturn>,
+) => {
+  const { baseCurrency, fx } = action.payload;
+  state.baseCurrency = baseCurrency;
+  state.currencyData = convertFXsToStoreCurrencyData(fx);
 };
