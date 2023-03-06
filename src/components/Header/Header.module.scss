@@ -1,0 +1,9 @@
+@use 'src/styles/variables' as variables;
+
+.root {
+  background: variables.$color-black;
+  color: variables.$color-white;
+  height: 48px;
+  font-size: 32px;
+  padding: 4px;
+}

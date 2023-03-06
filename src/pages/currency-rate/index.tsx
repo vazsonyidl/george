@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'store';
 import { getTestIds, testIds } from 'helpers';
 import { CurrencyCard } from 'components/CurrencyCard';
+import Header from 'components/Header';
 
 import {
   fetchCurrencyExchangeRates,
@@ -31,6 +32,7 @@ const CurrencyRatePage: React.FC = () => {
 
   return (
     <div>
+      <Header />
       <CurrencyRateSearch />
       <div
         className={styles.container}
