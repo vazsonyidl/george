@@ -41,7 +41,7 @@ const CurrencyRatePage: React.FC = () => {
         {shouldDisplayCurrencyData
           ? currencyData.map((data) => (
               <CurrencyCard
-                key={data.countryCode}
+                key={data.currencyName}
                 currencyCode={data.currencyCode}
                 countryCode={data.countryCode}
                 currencyName={data.currencyName}
