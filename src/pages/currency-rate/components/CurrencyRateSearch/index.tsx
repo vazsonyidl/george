@@ -17,9 +17,16 @@ const CurrencyRateSearch: React.FC = () => {
 
   return (
     <div className={styles.root}>
+      <label
+        htmlFor="currencySearch"
+        className={styles.label}
+      >
+        Search
+      </label>
       <input
         onChange={onSearchTermChange}
         value={searchTerm}
+        id="currencySearch"
         aria-label="currency rate search term"
         {...getTestIds(testIds.currencyRateSearchInput)}
       />

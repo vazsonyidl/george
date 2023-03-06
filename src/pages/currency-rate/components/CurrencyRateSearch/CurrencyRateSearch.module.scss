@@ -1,4 +1,13 @@
+@use 'src/styles/variables' as variables;
+
 .root {
   position: sticky;
   top: 0;
+  background: variables.$color-grey;
+  padding: 4px;
+}
+
+.label {
+  color: variables.$color-white;
+  padding-inline-end: 8px;
 }
